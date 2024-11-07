@@ -8,7 +8,6 @@ public class EmeraldExtractor : BaseExtractor {
     public override Pokemon? ExtractPokemon(uint pokemonIndex) {
         if (pokemonIndex > MaxPokemonIndex) return null;
         
-        
         int offset = (int)(StartOffset + pokemonIndex * PokemonBytesSize);
         return new Pokemon {
             BaseHp = RomData[offset],
