@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonRomExtractor", "PokemonRomExtractor\PokemonRomExtractor.csproj", "{15B4FF3A-F629-45F5-B3FC-13DCD376A78E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonRomExtractor.Core", "PokemonRomExtractor.Core\PokemonRomExtractor.Core.csproj", "{40B6DC45-CD17-4793-8E2C-1F6419AEDB92}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{15B4FF3A-F629-45F5-B3FC-13DCD376A78E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15B4FF3A-F629-45F5-B3FC-13DCD376A78E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15B4FF3A-F629-45F5-B3FC-13DCD376A78E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15B4FF3A-F629-45F5-B3FC-13DCD376A78E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40B6DC45-CD17-4793-8E2C-1F6419AEDB92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40B6DC45-CD17-4793-8E2C-1F6419AEDB92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40B6DC45-CD17-4793-8E2C-1F6419AEDB92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40B6DC45-CD17-4793-8E2C-1F6419AEDB92}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
