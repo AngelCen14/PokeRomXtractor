@@ -1,4 +1,4 @@
-﻿namespace PokemonRomExtractor.Core.Data.Gen3;
+﻿namespace PokeRomXtractor.Core.Data.Gen3;
 
 public class Item {
     public string Name { get; set; }

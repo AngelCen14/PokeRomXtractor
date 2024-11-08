@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace PokemonRomExtractor.Core.Extractors.Gen3;
+namespace PokeRomXtractor.Core;
 
 public static class Gen3TextDecoder {
     private const char HGM = '♂';

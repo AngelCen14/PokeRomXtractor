@@ -1,4 +1,4 @@
-﻿namespace PokemonRomExtractor.Core.Games;
+﻿namespace PokeRomXtractor.Core.Games;
 
 public enum Game {
     Red,

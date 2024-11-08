@@ -1,7 +1,7 @@
-﻿using PokemonRomExtractor.Core.Extractors.Gen3;
-using PokemonRomExtractor.Core.Games;
+﻿using PokeRomXtractor.Core.Extractors.Gen3;
+using PokeRomXtractor.Core.Games;
 
-namespace PokemonRomExtractor.Core.Extractors;
+namespace PokeRomXtractor.Core.Extractors;
 
 public static class ExtractorManager {
     public static RomExtractor GetRomExtractor(string romPath) {

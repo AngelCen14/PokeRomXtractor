@@ -1,4 +1,4 @@
-﻿namespace PokemonRomExtractor.Core.Games;
+﻿namespace PokeRomXtractor.Core.Games;
 
 public record GameInfo(string Code, int Offset, int Size) {
     #region Gen3

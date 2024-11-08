@@ -1,7 +1,7 @@
-﻿using PokemonRomExtractor.Core.Data;
-using PokemonRomExtractor.Core.Data.Gen3;
+﻿using PokeRomXtractor.Core.Data;
+using PokeRomXtractor.Core.Data.Gen3;
 
-namespace PokemonRomExtractor.Core.Extractors;
+namespace PokeRomXtractor.Core.Extractors;
 
 public abstract class RomExtractor {
     // Offsets

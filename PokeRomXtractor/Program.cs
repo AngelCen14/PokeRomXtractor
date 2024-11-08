@@ -1,6 +1,6 @@
-﻿using PokemonRomExtractor.Core.Extractors;
+﻿using PokeRomXtractor.Core.Extractors;
 
-namespace PokemonRomExtractor;
+namespace PokeRomXtractor;
 
 class Program {
     public static void Main() {
