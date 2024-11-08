@@ -9,21 +9,25 @@ public static class GameChecker {
         { Game.Emerald, GameInfo.Emerald },
         { Game.FireRed, GameInfo.FireRed }
     };
-
+    
+    // Devuelve que juego es la rom
     public static Game? Check(byte[] romData) {
-        foreach (var (game, info) in GameDictionary) {
-            if (MatchGameCode(romData, info)) {
+        foreach (KeyValuePair<Game, GameInfo> keyValuePair in GameDictionary) {
+            Game game = keyValuePair.Key;
+            GameInfo gameInfo = keyValuePair.Value;
+            if (MatchGameCode(romData, gameInfo)) {
                 return game;
             }
         }
         return null;
     }
 
-    private static bool MatchGameCode(byte[] romData, GameInfo info) {
-        string gameCode = GetGameCode(romData, info.Offset, info.Size);
-        return gameCode == info.Code;
+    private static bool MatchGameCode(byte[] romData, GameInfo gameInfo) {
+        string gameCode = GetGameCode(romData, gameInfo.Offset, gameInfo.Size);
+        return gameCode.Equals(gameInfo.Code);
     }
-
+    
+    // Extrae el id del juego de la rom
     private static string GetGameCode(byte[] romData, int offset, int size) {
         byte[] gameCodeBytes = new byte[size];
         Array.Copy(romData, offset, gameCodeBytes, 0, size);

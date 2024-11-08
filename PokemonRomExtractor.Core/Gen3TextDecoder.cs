@@ -32,9 +32,9 @@ public static class Gen3TextDecoder {
         Terminator, Terminator, Terminator, Terminator, Terminator, Terminator, Terminator, Terminator, Terminator,
     ];
     
+   // Decodifica los textos del juego a partir de los bytes correspondientes al texto
    public static string Decode(byte[] encodedText) {
         StringBuilder decodedText = new StringBuilder();
-
         foreach (byte b in encodedText) {
             if (b >= G3_EN.Length) break;
             if (b == TerminatorByte) {
@@ -42,10 +42,10 @@ public static class Gen3TextDecoder {
             }
             decodedText.Append(b == LineJumpByte ? '\n' : G3_EN[b]);
         }
-
         return decodedText.ToString();
    }
    
+   // Decodifica los textos del juego a partir un offset, hasta que encuntre un terminador de cadena
    public static string DecodeFromOffset(int offset, byte[] romData) {
        StringBuilder decodedText = new StringBuilder();
        for (int i = offset; romData[i] != TerminatorByte; i++) {

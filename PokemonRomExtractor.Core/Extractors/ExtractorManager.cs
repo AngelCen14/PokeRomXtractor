@@ -5,10 +5,10 @@ namespace PokemonRomExtractor.Core.Extractors;
 
 public static class ExtractorManager {
     public static RomExtractor GetRomExtractor(string romPath) {
+        Console.WriteLine("Analyzing rom...");
         byte[] romData = File.ReadAllBytes(romPath);
         Game? romGame = GameChecker.Check(romData);
-
-        Console.WriteLine("Game: "+romGame);
+        Console.WriteLine($"Loaded game: {romGame}");
         
         switch (romGame) {
             case Game.Emerald:
