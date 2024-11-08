@@ -1,34 +1,36 @@
-﻿namespace PokemonRomExtractor.Core;
+﻿namespace PokemonRomExtractor.Core.Data.Gen3;
 
 public class Pokemon {
-    public int BaseHp { get; set; }
-    public int BaseAttack { get; set; }
-    public int BaseDefense { get; set; }
-    public int BaseSpeed { get; set; }
-    public int BaseSpecialAttack { get; set; }
-    public int BaseSpecialDefense { get; set; }
-    public Type Type1 { get; set; }
-    public Type Type2 { get; set; }
-    public int CatchRate { get; set; }
-    public int BaseExpYield { get; set; }
-    public string EffortYield { get; set; }
-    public string Item1 { get; set; }
-    public string Item2 { get; set; }
-    public int Gender { get; set; }
-    public int EggCycles { get; set; }
-    public int BaseFriendship { get; set; }
+    public string Name { get; set; }
+    public byte BaseHp { get; set; }
+    public byte BaseAttack { get; set; }
+    public byte BaseDefense { get; set; }
+    public byte BaseSpeed { get; set; }
+    public byte BaseSpecialAttack { get; set; }
+    public byte BaseSpecialDefense { get; set; }
+    public PokemonType Type1 { get; set; }
+    public PokemonType Type2 { get; set; }
+    public byte CatchRate { get; set; }
+    public byte BaseExpYield { get; set; }
+    public ushort EffortYield { get; set; }
+    public Item Item1 { get; set; }
+    public Item Item2 { get; set; }
+    public Gender Gender { get; set; }
+    public byte EggCycles { get; set; }
+    public byte BaseFriendship { get; set; }
     public LevelUpType LevelUpType { get; set; }
-    public int EggGroup1 { get; set; }
-    public int EggGroup2 { get; set; }
-    public int Ability1 { get; set; }
-    public int Ability2 { get; set; }
+    public byte EggGroup1 { get; set; }
+    public byte EggGroup2 { get; set; }
+    public string Ability1 { get; set; }
+    public string Ability2 { get; set; }
     public int SafariZoneRate { get; set; }
     public int ColorAndFlip { get; set; }   
-    public string Padding { get; set; }
+    public ushort Padding { get; set; }
     
     public override string ToString() {
         return $"Pokemon:\n" +
-               $"Base HP: {BaseHp}\n" +
+               $"Name: {Name}\n" +
+               $"Base Hp: {BaseHp}\n" +
                $"Base Attack: {BaseAttack}\n" +
                $"Base Defense: {BaseDefense}\n" +
                $"Base Speed: {BaseSpeed}\n" +
@@ -39,8 +41,8 @@ public class Pokemon {
                $"Catch Rate: {CatchRate}\n" +
                $"Base EXP Yield: {BaseExpYield}\n" +
                $"Effort Yield: {EffortYield}\n" +
-               $"Item 1: {Item1}\n" +
-               $"Item 2: {Item2}\n" +
+               $"Item 1: {{ Name: {Item1.Name}, Index Number: {Item1.IndexNumber} }}\n" +
+               $"Item 2: {{ Name: {Item2.Name}, Index Number: {Item2.IndexNumber}  }}\n" +
                $"Gender: {Gender}\n" +
                $"Egg Cycles: {EggCycles}\n" +
                $"Base Friendship: {BaseFriendship}\n" +

@@ -1,6 +1,6 @@
-﻿namespace PokemonRomExtractor.Core;
+﻿namespace PokemonRomExtractor.Core.Data.Gen3;
 
-public enum Type {
+public enum PokemonType {
     Normal = 0,
     Fighting = 1,
     Flying = 2,
@@ -10,7 +10,7 @@ public enum Type {
     Bug = 6,
     Ghost = 7,
     Steel = 8,
-    Unknown_Fairy = 9,
+    Unknown = 9,
     Fire = 10,
     Water = 11,
     Grass = 12,

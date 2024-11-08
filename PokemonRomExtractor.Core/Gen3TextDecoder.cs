@@ -2,11 +2,11 @@
 
 namespace PokemonRomExtractor.Core.Extractors.Gen3;
 
-public class TextDecoder
-{
+public static class Gen3TextDecoder {
     private const char HGM = '♂';
     private const char HGF = '♀';
-    public const byte TerminatorByte = 0xFF;
+    private const byte TerminatorByte = 0xFF;
+    private const byte LineJumpByte = 0xFE;
     private const char Terminator = (char)TerminatorByte;
     
     private static ReadOnlySpan<char> G3_EN =>
@@ -26,47 +26,32 @@ public class TextDecoder
         'F',  'G',  'H',  'I', 'J',  'K',  'L',  'M',  'N',  'O',  'P',  'Q', 'R',  'S',  'T',  'U', // C
         'V',  'W',  'X',  'Y', 'Z',  'a',  'b',  'c',  'd',  'e',  'f',  'g', 'h',  'i',  'j',  'k', // D
         'l',  'm',  'n',  'o', 'p',  'q',  'r',  's',  't',  'u',  'v',  'w', 'x',  'y',  'z',  '►', // E
-        ':',  'Ä',  'Ö',  'Ü', 'ä',  'ö',  'ü',                                                      // F
+        ':',  'Ä',  'Ö',  'Ü', 'ä',  'ö',  'ü',                                                     // F
 
         // Make the total length 256 so that any byte access is always within the array
         Terminator, Terminator, Terminator, Terminator, Terminator, Terminator, Terminator, Terminator, Terminator,
     ];
     
-    void decode(uint pokemonIndex, byte[] RomData)
-    {
-        // El offset donde comienzan los nombres de los Pokémon es 0x3185C8
-        // Los nombres tienen un máximo de 10 caracteres (11 bytes incluyendo el byte de terminación 0x00).
-        int nameOffset = 0x3185C8 + (int)(pokemonIndex * 11);  // 10 caracteres + 1 byte de terminación.
+   public static string Decode(byte[] encodedText) {
+        StringBuilder decodedText = new StringBuilder();
 
-        // Crear un array para almacenar los bytes del nombre (máximo 11 bytes).
-        byte[] nameBytes = new byte[11];
-
-        // Leer hasta 10 caracteres o hasta el byte 0x00 (fin de la cadena).
-        for (int i = 0; i < 10; i++) {
-            byte currentByte = RomData[nameOffset + i];
-            if (currentByte == 0x00) {
-                break;  // Terminamos la lectura al encontrar el byte 0x00
-            }
-            nameBytes[i] = currentByte;  // Guardamos el byte en el array
-        }
-
-        // Aseguramos que el byte de terminación 0x00 esté presente al final
-        nameBytes[10] = 0x00;
-        
-        // Crear un StringBuilder para construir el nombre
-        StringBuilder pokemonName = new StringBuilder();
-
-        // Iterar sobre cada byte en el array y convertirlo
-        foreach (byte b in nameBytes) {
+        foreach (byte b in encodedText) {
+            if (b >= G3_EN.Length) break;
             if (b == TerminatorByte) {
-                break;  // Terminamos al encontrar un byte 0x00
+                break;  
             }
-
-            // Añadir el carácter correspondiente a la cadena
-            pokemonName.Append(G3_EN[b]);
+            decodedText.Append(b == LineJumpByte ? '\n' : G3_EN[b]);
         }
-        
 
-        Console.WriteLine(pokemonName.ToString());
-    }
+        return decodedText.ToString();
+   }
+   
+   public static string DecodeFromOffset(int offset, byte[] romData) {
+       StringBuilder decodedText = new StringBuilder();
+       for (int i = offset; romData[i] != TerminatorByte; i++) {
+           if (romData[i] >= G3_EN.Length) break;
+           decodedText.Append(romData[i] == LineJumpByte ? '\n' : G3_EN[romData[i]]);
+       }
+       return decodedText.ToString();
+   }
 }
