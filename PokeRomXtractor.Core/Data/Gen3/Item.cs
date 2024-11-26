@@ -1,5 +1,6 @@
 ﻿namespace PokeRomXtractor.Core.Data.Gen3;
 
+[Serializable]
 public class Item {
     public string Name { get; set; }
     public ushort IndexNumber { get; set; }

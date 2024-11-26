@@ -1,7 +1,6 @@
 ﻿using System.Text;
-using PokeRomXtractor.Core.Games;
 
-namespace PokeRomXtractor.Core;
+namespace PokeRomXtractor.Core.Games;
 
 public static class GameChecker {
     private static readonly Dictionary<Game, GameInfo> GameDictionary = new() {

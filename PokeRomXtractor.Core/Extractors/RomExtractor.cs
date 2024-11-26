@@ -1,5 +1,4 @@
-﻿using PokeRomXtractor.Core.Data;
-using PokeRomXtractor.Core.Data.Gen3;
+﻿using PokeRomXtractor.Core.Data.Gen3;
 
 namespace PokeRomXtractor.Core.Extractors;
 
@@ -42,5 +41,5 @@ public abstract class RomExtractor {
     protected abstract void ExtracAbilities();
     protected abstract void ExtracPokemonNames();
 
-    public abstract void GeneratePokemonJson(string path, string fileName);
+    public abstract void GeneratePokemonListJson(string path);
 }
